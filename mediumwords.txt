@@ -1,8 +1,8 @@
-1 femister The last name of the (best) CSE264 Professor. 
-2 sunlab   Room in Packard lab that ironically gets no sunlight. 
-3 sandbox  Despite its deceiving name, this room in Packard Lab has no sand. 
-4 wics     Women In Computer Science. 
-5 github   Place where we can share code and collaborate. 
-6 capstone Projects most of our class have started that we will continue int he Fall. 
-7 picnic   CSE department annual ________ will be held on May 8. 
-8 ssh      Secure Shell . 
+1, femister, The last name of the (best) CSE264 Professor. 
+2, sunlab, Room in Packard lab that ironically gets no sunlight. 
+3, sandbox, Despite its deceiving name, this room in Packard Lab has no sand. 
+4, wics, Women In Computer Science. 
+5, github, Place where we can share code and collaborate. 
+6, capstone, Projects most of our class have started that we will continue int he Fall. 
+7, picnic, CSE department annual ________ will be held on May 8. 
+8, ssh, Secure Shell . 

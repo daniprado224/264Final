@@ -1,10 +1,10 @@
-1 packard   Name of the on-campus building we are at right now. 
-2 helble    Last name of the current Lehigh President. 
-3 CSB       Interdisciplinary program for Computer Science and Business. 
-4 linderman Library known for it's rotunda. 
-5 clutch    Name of the Lehigh mascot. 
-6 LELAF     Longest standing football rivalry. 
-7 rathbone  Only dining hall currently. 
-8 goodman   Campus where athletes go to train. 
-9 fraternity Greek organization most guys on campus are a part of. 
-10 cup Name of the ice cream shop on Farrington Square. 
+1, packard, Name of the on-campus building we are at right now. 
+2, helble, Last name of the current Lehigh President. 
+3, CSB, Interdisciplinary program for Computer Science and Business. 
+4, linderman, Library known for it's rotunda. 
+5, clutch, Name of the Lehigh mascot. 
+6, LELAF, Longest standing football rivalry. 
+7, rathbone, Only dining hall currently. 
+8, goodman, Campus where athletes go to train. 
+9, fraternity, Greek organization most guys on campus are a part of. 
+10, cup, Name of the ice cream shop on Farrington Square. 
