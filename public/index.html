@@ -13,21 +13,26 @@ This html file holds the structure of the crossword puzzle.
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   </head>
   <body width = "800px">
-    <div class = "container">
+    <div>
+      <div class="container">
+      <div>
+        <h1 class =“websitetitle”>Cross Word Puzzle FUN!</h1>
+      </div>
       <div>
         <input type = "button" value = "easy" class = "easy" id = "easy"> 
         <input type = "button" value = "medium" class = "medium" id = "med"> 
         <input type = "button" value = "hard" class = "hard" id = "hard"> 
       </div>
+    </div>
       <div>
-        <table id="tbldiv" border="0" cellpadding="2" cellspacing="2" class="tbl">
+        <table class="tbldiv" border="0" cellpadding="2" cellspacing="2" class="tbl">
           <tbody id="results">
             <h3 id="theme"></h1>
           </tbody>
         </table>
       </div>
-      <div id="rightdiv">
-        <h5>Clues</h5>
+      <div class="rightdiv">
+        <h2 class="centered">Clues</h2>
       </div>
     </div>
     <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
