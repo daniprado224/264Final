@@ -7,6 +7,18 @@ This file is for the backend of the crossword puzzle */
 
 $(function () {
     $("#easy").click((evt) =>{  
-      console.log("here");
+      console.log("easy");
     });
+});
+
+$(function () {
+  $("#med").click((evt) =>{  
+    console.log("med");
   });
+});
+
+$(function () {
+  $("#hard").click((evt) =>{  
+    console.log("hard");
+  });
+});

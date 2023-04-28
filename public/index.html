@@ -14,9 +14,21 @@ This html file holds the structure of the crossword puzzle.
   </head>
   <body width = "800px">
     <div class = "container">
+      <div>
         <input type = "button" value = "easy" class = "easy" id = "easy"> 
         <input type = "button" value = "medium" class = "medium" id = "med"> 
         <input type = "button" value = "hard" class = "hard" id = "hard"> 
+      </div>
+      <div>
+        <table id="tbldiv" border="0" cellpadding="2" cellspacing="2" class="tbl">
+          <tbody id="results">
+            <h3 id="theme"></h1>
+          </tbody>
+        </table>
+      </div>
+      <div id="rightdiv">
+        <h5>Clues</h5>
+      </div>
     </div>
     <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
