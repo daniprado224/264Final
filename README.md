@@ -1,4 +1,2 @@
-# 264Final
-Authors: Elyse Adamo, Daniella Prado, Luisa Slomp
+# 26 4Final
 Final project for web programming spring 2023. 
- 

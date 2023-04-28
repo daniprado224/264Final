@@ -5,7 +5,7 @@ Luisa Slomp
 CSE 264- Final Project: CrossWord Puzzle 
 This file is for the styling of the crossword puzzle */
 body{
-    background-color: rgb(250, 215, 241);
+    background-color: antiquewhite;
 }
 .easy{
     text-align: center;  
@@ -30,6 +30,22 @@ body{
     height: 80px; 
     width: 100px; 
     position:relative; 
-    top:5px;
-    float: right; 
+    left:0x; 
+    top:5px
+}
+
+.tbldiv{ /* This sets the table to the left of the page and makes it have a scroll bar */
+    background-color:black;
+    height:800px;
+    overflow:auto;
+    float:left; 
+    width:66%; 
+}
+
+.rightdiv{ /* This creates a div for the right side of the page */
+    width:33%; 
+    margin-top:0; 
+    margin-bottom:0; 
+    margin-left:66%; 
+    margin-right:100%; 
 }

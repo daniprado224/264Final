@@ -1,0 +1,37 @@
+<!-- 
+Elyse Adamo
+Daniella Prado
+Luisa Slomp
+CSE 264- Final Project: CrossWord Puzzle 
+This html file holds the structure of the crossword puzzle. 
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>CrossWord Final</title>
+    <link rel="stylesheet" href= "css/style.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  </head>
+  <body width = "800px">
+    <div class = "container">
+      <div>
+        <input type = "button" value = "easy" class = "easy" id = "easy"> 
+        <input type = "button" value = "medium" class = "medium" id = "med"> 
+        <input type = "button" value = "hard" class = "hard" id = "hard"> 
+      </div>
+      <div>
+        <table id="tbldiv" border="0" cellpadding="2" cellspacing="2" class="tbl">
+          <tbody id="results">
+            <h3 id="theme"></h1>
+          </tbody>
+        </table>
+      </div>
+      <div id="rightdiv">
+        <h5>Clues</h5>
+      </div>
+    </div>
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
+    <script src="js/scripts.js"></script>
+  </body>
+</html>
