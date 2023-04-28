@@ -27,7 +27,6 @@ const fixeasy  = easylines.map(
     let num = l[0];
     let myword = l[1]; 
     let myclue = l[2]; 
-    console.log(new Words(num, myword, myclue));
     return new Words(l[0], l[1], l[2]); 
   }
 )
@@ -39,7 +38,6 @@ const fixmedium  = mediumlines.map(
     let num = l[0];
     let myword = l[1]; 
     let myclue = l[2]; 
-    console.log(new Words(num, myword, myclue));
     return new Words(l[0],  l[1], l[2]); 
   }
 )
@@ -51,16 +49,52 @@ const fixhard  = hardlines.map(
     let num = l[0];
     let myword = l[1]; 
     let myclue = l[2]; 
-    console.log(new Words(num, myword, myclue));
     return new Words(l[0],  l[1], l[2]); 
   }
 )
+console.log(fixhard); 
 
-app.get("/search", (req, res) => {
-  console.log("hi");
-  res.end(JSON.stringify("here")); 
+app.get("/easymake", (req, res) => {
+  let str = "";
+  for(i = 0; i < 5; i++){
+    str = str + (i+1).toString();
+    str = str + " ";
+    str = str + fixeasy[i].clue;
+    str = str + "<br></br>";
+    str = str + "\n";
+  }
+  console.log(str);
+  let obj = {contents: str};
+  res.end(JSON.stringify(obj)); 
 })
 
+app.get("/medmake", (req, res) => {
+  let str = "";
+  for(i = 0; i < 8; i++){
+    str = str + (i+1).toString();
+    str = str + " ";
+    str = str + fixmedium[i].clue;
+    str = str + "<br></br>";
+    str = str + "\n";
+  }
+  console.log(str);
+  let obj = {contents: str};
+  res.end(JSON.stringify(obj)); 
+})
+
+app.get("/hardmake", (req, res) => {
+  let str = "";
+  for(i = 0; i < 10; i++){
+    str = str + (i+1).toString();
+    str = str + " ";
+    str = str + fixhard[i].clue;
+    str = str + "<br></br>";
+    str = str + "\n";
+  }
+  console.log(str);
+  let obj = {contents: str};
+  res.end(JSON.stringify(obj)); 
+})
 
 
 app.use(function(req, res) {
