@@ -22,3 +22,22 @@ $(function () {
     console.log("hard");
   });
 });
+
+function easyMake() {
+  $.ajax(
+    "/search", 
+    {   
+      type: "GET",
+      processData: false,
+      dataType: "json",
+      success: function(info) {  
+        $("#container").html(info);
+      },
+      error: function(jqXHR, textStatus, errorThrown) {
+        alert("Error: " + jqXHR.responseText);
+        alert("Error: " + textStatus);
+        alert("Error: " + errorThrown);
+      }
+    }
+  );
+}
