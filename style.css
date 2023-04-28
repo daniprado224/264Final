@@ -30,6 +30,6 @@ body{
     height: 80px; 
     width: 100px; 
     position:relative; 
-    left:0x; 
-    top:5px
+    top:5px;
+    float: right; 
 }
