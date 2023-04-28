@@ -1,0 +1,5 @@
+1 javascript js stands for: 
+2 ajax       A call made to a server can be: 
+3 java       CSE007 language. 
+4 html       HyperText Markup Language. 
+5 typography differences between text styles can be described as: 
