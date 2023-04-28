@@ -1,0 +1,35 @@
+/* 
+Elyse Adamo
+Daniella Prado 
+Luisa Slomp
+CSE 264- Final Project: CrossWord Puzzle 
+This file is for the styling of the crossword puzzle */
+body{
+    background-color: antiquewhite;
+}
+.easy{
+    text-align: center;  
+    height: 80px; 
+    width: 100px; 
+    position:relative; 
+    left:0x; 
+    top:5px
+}
+
+.medium{
+    text-align: center;  
+    height: 80px; 
+    width: 100px; 
+    position:relative; 
+    left:0x; 
+    top:5px
+}
+
+.hard{
+    text-align: center;  
+    height: 80px; 
+    width: 100px; 
+    position:relative; 
+    left:0x; 
+    top:5px
+}
