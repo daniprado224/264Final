@@ -52,18 +52,17 @@ const fixhard  = hardlines.map(
     return new Words(l[0],  l[1], l[2]); 
   }
 )
-console.log(fixhard); 
 
 app.get("/easymake", (req, res) => {
   let str = "";
   for(i = 0; i < 5; i++){
     str = str + (i+1).toString();
-    str = str + " ";
+    str = str + ". ";
     str = str + fixeasy[i].clue;
     str = str + "<br></br>";
     str = str + "\n";
   }
-  console.log(str);
+  // console.log(str);
   let obj = {contents: str};
   res.end(JSON.stringify(obj)); 
 })
@@ -72,12 +71,12 @@ app.get("/medmake", (req, res) => {
   let str = "";
   for(i = 0; i < 8; i++){
     str = str + (i+1).toString();
-    str = str + " ";
+    str = str + ". ";
     str = str + fixmedium[i].clue;
     str = str + "<br></br>";
     str = str + "\n";
   }
-  console.log(str);
+  // console.log(str);
   let obj = {contents: str};
   res.end(JSON.stringify(obj)); 
 })
@@ -86,14 +85,91 @@ app.get("/hardmake", (req, res) => {
   let str = "";
   for(i = 0; i < 10; i++){
     str = str + (i+1).toString();
-    str = str + " ";
+    str = str + ". ";
     str = str + fixhard[i].clue;
     str = str + "<br></br>";
     str = str + "\n";
   }
-  console.log(str);
+  // console.log(str);
   let obj = {contents: str};
   res.end(JSON.stringify(obj)); 
+})
+
+
+app.get("/makeeasypuzzle", (req, res) => { 
+  let index = 0;
+  let temp = "";
+  let str = "      t         y      j  p      a  o      v  g  hjavascript j    a  m a    p  l x    h         y   ";
+  for(i = 0; i < 10; i++){
+    temp = temp + "<tr>"; // Since we are entering a new row each loop, add a new opening tr tag
+    for(j = 0; j < 10; j++){
+      if(str[index] == undefined){
+        break;
+      }
+      console.log(str[index]);
+      temp = temp + "<td>"; // Since we are entering a new column each loop, add a new opening td tag
+      temp = temp + str[index]; // Add the current value of grid
+      index = index + 1; // Move to the next value of grid
+      temp = temp + "</td>"; // Close the column tag
+    }
+
+    temp = temp + "</tr>"; // Since we are entering a new row each loop, add a new opening tr tag
+
+  }
+  
+//  console.log(temp); 
+ let obj = {contents: temp};
+ res.end(JSON.stringify(obj)); 
+})
+
+app.get("/makemedpuzzle", (req, res) => { 
+  let index = 0;
+  let temp = "";
+  let str = "  p   g      i   i  f   capstone   n   h  m  wics u  i   c u b ssh    n    t     l    e     a    r sandbox    ";
+  for(i = 0; i < 10; i++){
+    temp = temp + "<tr>"; // Since we are entering a new row each loop, add a new opening tr tag
+    for(j = 0; j < 11; j++){
+      if(str[index] == undefined){
+        break;
+      }
+      console.log(str[index]);
+      temp = temp + "<td>"; // Since we are entering a new column each loop, add a new opening td tag
+      temp = temp + str[index]; // Add the current value of grid
+      index = index + 1; // Move to the next value of grid
+      temp = temp + "</td>"; // Close the column tag
+    }
+
+    temp = temp + "</tr>"; // Since we are entering a new row each loop, add a new opening tr tag
+
+  }
+//  console.log(temp); 
+let obj = {contents: temp};
+res.end(JSON.stringify(obj)); 
+})
+
+app.get("/makehardpuzzle", (req, res) => { 
+  let index = 0;
+  let temp = "";
+  let str = "clutch              u    f lelaf    packard  i        s  a   n        b  t   d           e   e           r   r     goodman   m           i   a         rathbone          y      ";
+  for(i = 0; i < 11; i++){
+    temp = temp + "<tr>"; // Since we are entering a new row each loop, add a new opening tr tag
+    for(j = 0; j < 16; j++){
+      if(str[index] == undefined){
+        break;
+      }
+      console.log(str[index]);
+      temp = temp + "<td>"; // Since we are entering a new column each loop, add a new opening td tag
+      temp = temp + str[index]; // Add the current value of grid
+      index = index + 1; // Move to the next value of grid
+      temp = temp + "</td>"; // Close the column tag
+    }
+
+    temp = temp + "</tr>"; // Since we are entering a new row each loop, add a new opening tr tag
+
+  }
+//  console.log(temp); 
+let obj = {contents: temp};
+res.end(JSON.stringify(obj)); 
 })
 
 

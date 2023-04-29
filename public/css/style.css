@@ -8,41 +8,58 @@ body{
     background-color: antiquewhite;
 }
 .easy{
-    color:#DC7DD6;
+    color:#86B2F4;
+    font-weight:bold;
     text-align: center;  
     height: 80px; 
     width: 100px; 
     position:relative; 
     left:0x; 
-    top:5px
+    top:5px;
 }
 
 .medium{
-    color:#D361DB;
+    color:#86B2F4;
+    font-weight:bold;
     text-align: center;  
     height: 80px; 
     width: 100px; 
     position:relative; 
     left:0x; 
-    top:5px
+    top:5px;
 }
 
 .hard{
-    color:#D050DC;
+    color:#86B2F4;
+    font-weight:bold;
     text-align: center;  
     height: 80px; 
     width: 100px; 
     position:relative; 
     left:0x; 
-    top:5px
+    top:5px;
 }
 
+.submit{
+    color:#AA8CF5;
+    font-weight:bold;
+    text-align: center;  
+    height: 80px; 
+    width: 100px; 
+    left:0x; 
+    top:5px;
+}
 .tbldiv{ /* This sets the table to the left of the page and makes it have a scroll bar */
     background-color:#AA8CF5;
     height:600px;
     overflow:auto;
     float:left; 
-    width:66%; 
+    width:66%;    
+    overflow:auto;
+}
+
+.buttondiv{ 
+    background-color:#AA8CF5;
 }
 
 .rightdiv{ /* This creates a div for the right side of the page */
@@ -73,4 +90,13 @@ body{
 
 .centered{
     text-align:center;
+}
+
+.clue{
+    font-size:x-large;
+}
+
+.puzzle{
+    border-color:black;
+    font-size:small;
 }
