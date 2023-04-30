@@ -42,10 +42,12 @@ body{
 
 .submit{
     color:#86B2F4;
+    color:#86B2F4;
     font-weight:bold;
     text-align: center;  
     height: 80px; 
     width: 200px; 
+    position:relative; 
     left:0x; 
     top:5px;
 }

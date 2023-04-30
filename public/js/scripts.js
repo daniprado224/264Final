@@ -14,7 +14,7 @@ function easyMake() {
       dataType: "json",
       success: function(info) {
         $("#websitetitle").empty(); 
-        $("#websitetitle").append("Easy Crossword Puzzle"); 
+        $("#websitetitle").append("Web Systems Programming Crossword Puzzle"); 
         $("#centered").empty(); 
         $("#centered").append("Easy Puzzle Clues:").addClass("clue");
         $("#centered").append("<br></br>");
@@ -55,7 +55,7 @@ function medMake() {
       dataType: "json",
       success: function(info) { 
         $("#websitetitle").empty(); 
-        $("#websitetitle").append("Medium Crossword Puzzle"); 
+        $("#websitetitle").append("Lehigh Computer Science Crossword Puzzle"); 
         $("#centered").empty(); 
         $("#centered").append("Medium Puzzle Clues:").addClass("clue");;
         $("#centered").append("<br></br>");
@@ -96,7 +96,7 @@ function hardMake() {
       dataType: "json",
       success: function(info) {  
         $("#websitetitle").empty(); 
-        $("#websitetitle").append("Hard Crossword Puzzle");         
+        $("#websitetitle").append("Life at Lehigh Crossword Puzzle");         
         $("#centered").empty(); 
         $("#centered").append("Hard Puzzle Clues:").addClass("clue");
         $("#centered").append("<br></br>");
