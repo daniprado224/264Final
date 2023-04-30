@@ -114,21 +114,21 @@ app.get("/makeeasypuzzle", (req, res) => {
         temp = temp + "<td>&nbsp;</td>"; // Add empty space to the cell
       } else {
         if(str[index] === "j" && jCount === 0){ // java
-          temp = temp + '<td><input type="text" id="23"style="background-color: white; display: inline-block; width: 40px; height: 40px;">3</input></td>';
+          temp = temp + '<td><input type="text" maxlength="1" id="23"style="background-color: white; display: inline-block; width: 40px; height: 40px;">3</input></td>';
           jCount++;
         } else if(str[index] === "j" && jCount === 1){ // javascript
-          temp = temp + '<td><input type="text" style="background-color: white; display: inline-block; width: 40px; height: 40px;">1</input></td>';
+          temp = temp + '<td><input type="text" maxlength="1" style="background-color: white; display: inline-block; width: 40px; height: 40px;">1</input></td>';
           jCount++;
         } else if(str[index] === "h" && hCount === 0){ // html
-          temp = temp + '<td><input type="text" style="background-color: white; display: inline-block; width: 40px; height: 40px;">4</input></td>';
+          temp = temp + '<td><input type="text" maxlength="1" style="background-color: white; display: inline-block; width: 40px; height: 40px;">4</input></td>';
           hCount++;
         } else if(str[index] === "t" && tCount === 0){ // typography
-          temp = temp + '<td><input type="text" style="background-color: white; display: inline-block; width: 40px; height: 40px;">5</input></td>';
+          temp = temp + '<td><input type="text" maxlength="1" style="background-color: white; display: inline-block; width: 40px; height: 40px;">5</input></td>';
           tCount++;
         } else if(str[index] === "a" && aCount === 1){ // ajax
-          temp = temp + '<td><input type="text" style="background-color: white; display: inline-block; width: 40px; height: 40px;">2</input></td>';
+          temp = temp + '<td><input type="text" maxlength="1" style="background-color: white; display: inline-block; width: 40px; height: 40px;">2</input></td>';
         } else {
-          temp = temp + '<td><input type="text" style="background-color: white; display: inline-block; width: 40px; height: 40px;"></input></td>'; // Add white box to the cell
+          temp = temp + '<td><input type="text" maxlength="1" style="background-color: white; display: inline-block; width: 40px; height: 40px;"></input></td>'; // Add white box to the cell
         } 
         if(str[index] === "a"){ // Increment the 'a' counter if an 'a' is found
           aCount++;
@@ -168,28 +168,28 @@ app.get("/makemedpuzzle", (req, res) => {
       //add numbers to boxes
       }else {
         if(str[index] === "f" && fCount === 0){ // femister
-          temp = temp + '<td><input type="text" style="background-color: white; display: inline-block; width: 40px; height: 40px;">1</input></td>';
+          temp = temp + '<td><input type="text" maxlength="1" style="background-color: white; display: inline-block; width: 40px; height: 40px;">1</input></td>';
           fCount++;
         } else if(str[index] === "s" && sCount === 1){ // sunlab
-          temp = temp + '<td><input type="text" style="background-color: white; display: inline-block; width: 40px; height: 40px;">2</input></td>';
+          temp = temp + '<td><input type="text" maxlength="1" style="background-color: white; display: inline-block; width: 40px; height: 40px;">2</input></td>';
         }else if(str[index] === "s" && sCount === 4){ // sunbox
-          temp = temp + '<td><input type="text" style="background-color: white; display: inline-block; width: 40px; height: 40px;">3</input></td>';
+          temp = temp + '<td><input type="text" maxlength="1" style="background-color: white; display: inline-block; width: 40px; height: 40px;">3</input></td>';
         }else if(str[index] === "s" && sCount === 2){ // ssh
-          temp = temp + '<td><input type="text" style="background-color: white; display: inline-block; width: 40px; height: 40px;">8</input></td>';
+          temp = temp + '<td><input type="text" maxlength="1" style="background-color: white; display: inline-block; width: 40px; height: 40px;">8</input></td>';
         } else if(str[index] === "w" && wCount === 0){ // wics
-          temp = temp + '<td><input type="text" style="background-color: white; display: inline-block; width: 40px; height: 40px;">4</input></td>';
+          temp = temp + '<td><input type="text" maxlength="1" style="background-color: white; display: inline-block; width: 40px; height: 40px;">4</input></td>';
           wCount++;
         } else if(str[index] === "g" && gCount === 0){ // github
-          temp = temp + '<td><input type="text" style="background-color: white; display: inline-block; width: 40px; height: 40px;">5</input></td>';
+          temp = temp + '<td><input type="text" maxlength="1" style="background-color: white; display: inline-block; width: 40px; height: 40px;">5</input></td>';
           gCount++;
         } else if(str[index] === "c" && cCount === 0){ // capstone
-          temp = temp + '<td><input type="text" style="background-color: white; display: inline-block; width: 40px; height: 40px;">6</input></td>';
+          temp = temp + '<td><input type="text" maxlength="1" style="background-color: white; display: inline-block; width: 40px; height: 40px;">6</input></td>';
           cCount++;
         } else if(str[index] === "p" && pCount === 0){ // picnic
-          temp = temp + '<td><input type="text" style="background-color: white; display: inline-block; width: 40px; height: 40px;">7</input></td>';
+          temp = temp + '<td><input type="text" maxlength="1" style="background-color: white; display: inline-block; width: 40px; height: 40px;">7</input></td>';
           pCount++;
         } else {
-          temp = temp + '<td><input type="text" style="background-color: white; display: inline-block; width: 40px; height: 40px;"></input></td>'; // Add white box to the cell
+          temp = temp + '<td><input type="text" maxlength="1" style="background-color: white; display: inline-block; width: 40px; height: 40px;"></input></td>'; // Add white box to the cell
         } if(str[index] === "s"){ // Increment the 's' counter if an 's' is found
           sCount++;
         }
