@@ -41,11 +41,11 @@ body{
 }
 
 .submit{
-    color:#AA8CF5;
+    color:#86B2F4;
     font-weight:bold;
     text-align: center;  
     height: 80px; 
-    width: 100px; 
+    width: 200px; 
     left:0x; 
     top:5px;
 }

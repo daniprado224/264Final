@@ -147,3 +147,16 @@ function easysend() {
     }
   );
 }
+
+function submit(){
+  var elements = $('input:text'); // get all text box values
+  if($('input:text').text() == "tyjpaovghjavascriptjamaplxhy"){ // check if it is right for easy puzzle
+    $("#centered").append(elements);
+    $("#centered").append("winner");
+  }
+  else{
+    $("#results").empty();
+    $("#centered").append(elements);
+    $("#centered").append("loser");
+  }
+}
