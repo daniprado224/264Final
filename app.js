@@ -106,21 +106,22 @@ app.get("/makeeasypuzzle", (req, res) => {
       if(str[index] == undefined){
         break;
       }
-      console.log(str[index]);
-      temp = temp + "<td>"; // Since we are entering a new column each loop, add a new opening td tag
-      temp = temp + str[index]; // Add the current value of grid
+      if(str[index] === " "){
+        temp = temp + "<td>&nbsp;</td>"; // Add empty space to the cell
+      } else {
+        temp = temp + '<td><div style="background-color: white; display: inline-block; width: 40px; height: 40px;"></div></td>'; // Add white box to the cell
+      }
       index = index + 1; // Move to the next value of grid
-      temp = temp + "</td>"; // Close the column tag
     }
 
     temp = temp + "</tr>"; // Since we are entering a new row each loop, add a new opening tr tag
 
   }
   
-//  console.log(temp); 
- let obj = {contents: temp};
- res.end(JSON.stringify(obj)); 
+  let obj = {contents: temp};
+  res.end(JSON.stringify(obj)); 
 })
+
 
 app.get("/makemedpuzzle", (req, res) => { 
   let index = 0;
@@ -132,20 +133,22 @@ app.get("/makemedpuzzle", (req, res) => {
       if(str[index] == undefined){
         break;
       }
-      console.log(str[index]);
       temp = temp + "<td>"; // Since we are entering a new column each loop, add a new opening td tag
-      temp = temp + str[index]; // Add the current value of grid
+      if(str[index] != " ") {
+        temp = temp + "<div style='background-color: white; display: inline-block; width: 40px; height: 40px;'>&nbsp;</div>"; // Add a white box
+      } else {
+        temp = temp + "&nbsp;"; // Add an empty space
+      }
       index = index + 1; // Move to the next value of grid
       temp = temp + "</td>"; // Close the column tag
     }
-
-    temp = temp + "</tr>"; // Since we are entering a new row each loop, add a new opening tr tag
-
+    temp = temp + "</tr>"; // Close the row tag
   }
-//  console.log(temp); 
-let obj = {contents: temp};
-res.end(JSON.stringify(obj)); 
-})
+  let obj = { contents: temp };
+  res.setHeader('Content-Type', 'application/json');
+  res.end(JSON.stringify(obj));
+});
+
 
 app.get("/makehardpuzzle", (req, res) => { 
   let index = 0;
@@ -159,18 +162,23 @@ app.get("/makehardpuzzle", (req, res) => {
       }
       console.log(str[index]);
       temp = temp + "<td>"; // Since we are entering a new column each loop, add a new opening td tag
-      temp = temp + str[index]; // Add the current value of grid
+      
+      if(str[index] === " "){
+        temp = temp + "<td>&nbsp;</td>"; // Add empty space to the cell
+      } else {
+        temp = temp + '<td><div style="background-color: white; display: inline-block; width: 40px; height: 40px;"></div></td>'; // Add white box to the cell
+      }
       index = index + 1; // Move to the next value of grid
-      temp = temp + "</td>"; // Close the column tag
     }
 
     temp = temp + "</tr>"; // Since we are entering a new row each loop, add a new opening tr tag
 
   }
-//  console.log(temp); 
-let obj = {contents: temp};
-res.end(JSON.stringify(obj)); 
+  
+  let obj = {contents: temp};
+  res.end(JSON.stringify(obj)); 
 })
+
 
 
 app.use(function(req, res) {
