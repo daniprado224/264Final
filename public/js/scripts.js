@@ -5,7 +5,12 @@ Luisa Slomp
 CSE 264- Final Project: CrossWord Puzzle 
 This file is for the backend of the crossword puzzle */
 
+let easyPuzzle = false;
+let medPuzzle = false;
+let hardPuzzle = false;
+
 function easyMake() {
+  easyPuzzle = true;
   $.ajax(
     "/easymake", 
     {   
@@ -47,6 +52,7 @@ function easyMake() {
 }
 
 function medMake() {
+  medPuzzle = true;
   $.ajax(
     "/medmake", 
     {   
@@ -88,6 +94,7 @@ function medMake() {
 }
 
 function hardMake() {
+  hardPuzzle = true;
   $.ajax(
     "/hardmake", 
     {   
@@ -149,14 +156,45 @@ function easysend() {
 }
 
 function submit(){
-  var elements = $('input:text'); // get all text box values
-  if($('input:text').text() == "tyjpaovghjavascriptjamaplxhy"){ // check if it is right for easy puzzle
-    $("#centered").append(elements);
-    $("#centered").append("winner");
+  var elements = document.getElementsByTagName("input");; // get all elements that have input
+  let str = "";
+  for(i = 0; i < elements.length; i++) {
+    if(elements[i].type == "text") {
+      str = str + elements[i].value; // if the element is a textbox, add its value to the string
+    }
   }
-  else{
-    $("#results").empty();
-    $("#centered").append(elements);
-    $("#centered").append("loser");
+  var act = "";
+  $("#websitetitle").empty();
+  if(easyPuzzle == true){
+    act = "tyjpaovghjavascriptjamaplxhy";
+    if(str == act){ // check if it is right for easy puzzle
+      $("#websitetitle").append("You won!");     
+    }
+    else{
+      $("#websitetitle").append("You did not win, try again.");
+    }
+    easyPuzzle = false;
   }
+  else if(medPuzzle == true){
+    act = "pgiifcapstonenhmwicsuicubsshntlearsandbox";
+    if(str == act){ // check if it is right for med puzzle
+      $("#websitetitle").append("You won!");     
+    }
+    else{
+      $("#websitetitle").append("You did not win, try again.");
+    }
+    medPuzzle = false;
+  }
+  else if(hardPuzzle == true){
+    act = "clutchuflelafpackardisanbtdhelblerrgoodmanmiarathboney";
+    if(str == act){ // check if it is right for hard puzzle
+      $("#websitetitle").append("You won!");     
+    }
+    else{
+      $("#websitetitle").append("You did not win, try again.");
+    }
+    hardPuzzle = false;
+  }
+  $("#results").empty();
+  $("#centered").empty();
 }
