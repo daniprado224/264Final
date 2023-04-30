@@ -54,42 +54,80 @@ const fixhard  = hardlines.map(
 )
 
 app.get("/easymake", (req, res) => {
-  let str = "";
-  for(i = 0; i < 5; i++){
-    str = str + (i+1).toString();
-    str = str + ". ";
-    str = str + fixeasy[i].clue;
-    str = str + "<br></br>";
-    str = str + "\n";
+  let accross = "<strong>Across:</strong>"; 
+  across = accross + "<br></br>"; 
+  let down = "<strong>Down:</strong>";
+  down = down + "<br></br>";
+  for(let i = 0; i < 5; i++){
+    if(i + 1 === 1){
+      accross = across + (i+1).toString();
+      accross = accross + ". ";
+      across = accross + fixeasy[i].clue;
+      accross = across + "<br></br>";
+      across = accross + "\n";
+    }else{
+        down = down + (i+1).toString();
+        down = down + ". ";
+        down = down + fixeasy[i].clue;
+        down = down + "<br></br>";
+        down = down + "\n";
+    }
   }
-  // console.log(str);
+  let str = "";
+  str = across + down; 
   let obj = {contents: str};
   res.end(JSON.stringify(obj)); 
 })
 
 app.get("/medmake", (req, res) => {
   let str = "";
+  let accross = "<strong>Across:</strong>"; 
+  across = accross + "<br></br>"; 
+  let down = "<strong>Down:</strong>";
+  down = down + "<br></br>";
   for(i = 0; i < 8; i++){
-    str = str + (i+1).toString();
-    str = str + ". ";
-    str = str + fixmedium[i].clue;
-    str = str + "<br></br>";
-    str = str + "\n";
+    if(i+1 === 3 || i+1 === 4 || i+1 === 6 || i+1 === 8){
+      accross = across + (i+1).toString();
+      accross = accross + ". ";
+      across = accross + fixmedium[i].clue;
+      accross = across + "<br></br>";
+      across = accross + "\n";
+    }else{
+      down = down + (i+1).toString();
+      down = down + ". ";
+      down = down + fixmedium[i].clue;
+      down = down + "<br></br>";
+      down = down + "\n";
+    }
   }
-  // console.log(str);
+  str = across + down; 
   let obj = {contents: str};
   res.end(JSON.stringify(obj)); 
 })
 
 app.get("/hardmake", (req, res) => {
   let str = "";
+  let accross = "<strong>Across:</strong>"; 
+  across = accross + "<br></br>"; 
+  let down = "<strong>Down:</strong>";
+  down = down + "<br></br>";
+
   for(i = 0; i < 10; i++){
-    str = str + (i+1).toString();
-    str = str + ". ";
-    str = str + fixhard[i].clue;
-    str = str + "<br></br>";
-    str = str + "\n";
+    if(i+1 === 1 || i+1 === 4 || i+1 === 6 || i+1 === 8 || i+1 === 9 || i + 1 === 10){
+      accross = across + (i+1).toString();
+      accross = accross + ". ";
+      across = accross + fixhard[i].clue;
+      accross = across + "<br></br>";
+      across = accross + "\n";
+    }else{
+      down = down + (i+1).toString();
+      down = down + ". ";
+      down = down + fixhard[i].clue;
+      down = down + "<br></br>";
+      down = down + "\n";
+    }
   }
+  str = across + down; 
   // console.log(str);
   let obj = {contents: str};
   res.end(JSON.stringify(obj)); 
