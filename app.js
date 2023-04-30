@@ -100,6 +100,10 @@ app.get("/makeeasypuzzle", (req, res) => {
   let index = 0;
   let temp = "";
   let str = "      t         y      j  p      a  o      v  g  hjavascript j    a  m a    p  l x    h         y   ";
+  let jCount = 0; // Counter to track number of 'j's found
+  let aCount = 0; // Counter to track number of 'a's found
+  let hCount = 0; // Counter to track number of 'h's found
+  let tCount = 0;
   for(i = 0; i < 10; i++){
     temp = temp + "<tr>"; // Since we are entering a new row each loop, add a new opening tr tag
     for(j = 0; j < 10; j++){
@@ -109,7 +113,26 @@ app.get("/makeeasypuzzle", (req, res) => {
       if(str[index] === " "){
         temp = temp + "<td>&nbsp;</td>"; // Add empty space to the cell
       } else {
-        temp = temp + '<td><div style="background-color: white; display: inline-block; width: 40px; height: 40px;"></div></td>'; // Add white box to the cell
+        if(str[index] === "j" && jCount === 0){ // java
+          temp = temp + '<td><div style="background-color: white; display: inline-block; width: 40px; height: 40px;">3</div></td>';
+          jCount++;
+        } else if(str[index] === "j" && jCount === 1){ // javascript
+          temp = temp + '<td><div style="background-color: white; display: inline-block; width: 40px; height: 40px;">1</div></td>';
+          jCount++;
+        } else if(str[index] === "h" && hCount === 0){ // html
+          temp = temp + '<td><div style="background-color: white; display: inline-block; width: 40px; height: 40px;">4</div></td>';
+          hCount++;
+        } else if(str[index] === "t" && tCount === 0){ // typography
+          temp = temp + '<td><div style="background-color: white; display: inline-block; width: 40px; height: 40px;">5</div></td>';
+          tCount++;
+        } else if(str[index] === "a" && aCount === 1){ // ajax
+          temp = temp + '<td><div style="background-color: white; display: inline-block; width: 40px; height: 40px;">2</div></td>';
+        } else {
+          temp = temp + '<td><div style="background-color: white; display: inline-block; width: 40px; height: 40px;"></div></td>'; // Add white box to the cell
+        } 
+        if(str[index] === "a"){ // Increment the 'a' counter if an 'a' is found
+          aCount++;
+        }
       }
       index = index + 1; // Move to the next value of grid
     }
@@ -121,6 +144,10 @@ app.get("/makeeasypuzzle", (req, res) => {
   let obj = {contents: temp};
   res.end(JSON.stringify(obj)); 
 })
+
+
+
+
 
 
 app.get("/makemedpuzzle", (req, res) => { 
