@@ -209,7 +209,14 @@ app.get("/makemedpuzzle", (req, res) => {
 app.get("/makehardpuzzle", (req, res) => { 
   let index = 0;
   let temp = "";
-  let str = "clutch              u    f lelaf    packard  i        s  a   n        b  t   d           e   e           r   r     goodman   m           i   a         rathbone          y       ";
+  let str = "clutch              u    f lelaf    packard  i        s  a   n        b  t   d           e   e           r   r     goodman   m           i   a         rathbone          y      ";
+  let pCount = 0; // Counter to track number of 'j's found
+  let hCount = 0; // Counter to track number of 'a's found
+  let cCount = 0; // Counter to track number of 'h's found
+  let lCount = 0;
+  let rCount = 0;
+  let gCount = 0;
+  let fCount = 0;
   for(i = 0; i < 11; i++){
     temp = temp + "<tr>"; // Since we are entering a new row each loop, add a new opening tr tag
     for(j = 0; j < 16; j++){
@@ -222,7 +229,36 @@ app.get("/makehardpuzzle", (req, res) => {
       if(str[index] === " "){
         temp = temp + "<td>&nbsp;</td>"; // Add empty space to the cell
       } else {
-        temp = temp + '<td><div style="background-color: white; display: inline-block; width: 40px; height: 40px;"></div></td>'; // Add white box to the cell
+        if(str[index] === "p" && pCount === 0){ // packard
+          temp = temp + '<td><input type="text" maxlength="1" style="background-color: white; display: inline-block; width: 40px; height: 40px;">1</div></td>';
+          pCount++;
+        } else if(str[index] === "c" && cCount === 2){ // csb
+          temp = temp + '<td><input type="text" maxlength="1" style="background-color: white; display: inline-block; width: 40px; height: 40px;">3</div></td>';
+          cCount++;
+        }else if(str[index] === "c" && cCount === 0){ // clutch
+          temp = temp + '<td><input type="text" maxlength="1" style="background-color: white; display: inline-block; width: 40px; height: 40px;">5</div></td>';
+          cCount++;
+        }else if(str[index] === "c" && cCount === 1){ // cup
+          temp = temp + '<td><input type="text" maxlength="1" style="background-color: white; display: inline-block; width: 40px; height: 40px;">10</div></td>';
+          cCount++;
+        } else if(str[index] === "l" && lCount === 2){ // linderman
+          temp = temp + '<td><input type="text" maxlength="1" style="background-color: white; display: inline-block; width: 40px; height: 40px;">4</div></td>';
+          lCount++;
+        } else if(str[index] === "l" && lCount === 1){ // lelaf
+          temp = temp + '<td><input type="text" maxlength="1" style="background-color: white; display: inline-block; width: 40px; height: 40px;">6</div></td>';
+          lCount++;
+        } else if(str[index] === "r" && rCount === 3){ // rathbone
+          temp = temp + '<td><input type="text" maxlength="1" style="background-color: white; display: inline-block; width: 40px; height: 40px;">7</div></td>';
+          rCount++;
+        } else if(str[index] === "g" && gCount === 0){ // goodman
+          temp = temp + '<td><input type="text" maxlength="1" style="background-color: white; display: inline-block; width: 40px; height: 40px; 40px;">8</div></td>';
+          gCount++;
+        } else if(str[index] === "f" && fCount === 0){ // fraternity
+          temp = temp + '<td><input type="text" maxlength="1" style="background-color: white; display: inline-block; width: 40px; height: 40px;">9</div></td>';
+          fCount++;
+        } else {
+          temp = temp + '<td><input type="text" maxlength="1" style="background-color: white; display: inline-block; width: 40px; height: 40px;"></div></td>'; // Add white box to the cell
+        } 
       }
       index = index + 1; // Move to the next value of grid
     }
