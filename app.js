@@ -113,7 +113,7 @@ app.get("/hardmake", (req, res) => {
   down = down + "<br></br>";
 
   for(i = 0; i < 10; i++){
-    if(i+1 === 1 || i+1 === 4 || i+1 === 6 || i+1 === 8 || i+1 === 9){
+    if(i+1 === 1 || i+1 === 2 || i+1 === 5 || i+1 === 6 || i+1 === 7 || i+1 === 8){
       accross = across + (i+1).toString();
       accross = accross + ". ";
       across = accross + fixhard[i].clue;
