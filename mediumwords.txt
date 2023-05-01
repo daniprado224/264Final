@@ -1,7 +1,7 @@
 1, femister, The last name of the (best) CSE264 Professor. 
 2, sunlab, Room in Packard lab that ironically gets no sunlight. 
 3, sandbox, This room in Packard Lab has no sand despite its deceiving name. 
-4, wics, Women In Computer Science. 
+4, wics, Acronym for on-campus club for women studying CS.
 5, github, Place where we can share code and collaborate. 
 6, capstone, Projects most of our class have started that we will continue int he Fall. 
 7, picnic, CSE department annual ________ will be held on May 8. 
