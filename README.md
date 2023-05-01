@@ -20,7 +20,10 @@ To create this project, the following steps were taken:
 5. Colors were selected from color.adobe.com to pick the puzzle's color scheme. 
 6. Add a title to the html file and a header with what you want to name your puzzle. 
 7. Draw out in a piece of paper the formatting of the puzzles you want to create and create 3 different .txt files holding the word and the clue for each level. Place these files inside the public folder. 
+8. Do a git add, commit, and push. 
 HTML FILE
-7. Add a container div and place the buttons you will need: easy, medium, hard and submit. 
-8. Create two more divs for the table holding the clues and one for the crossword. 
+9. Add a container div and place the buttons you will need: easy, medium, hard and submit. 
+10. Create two more divs for the table holding the clues and one for the crossword. 
+11. Do a git add, commit, and push. 
+
 App.js 
