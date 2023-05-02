@@ -7,7 +7,7 @@ This file is for the styling of the crossword puzzle */
 body{
     background-color: antiquewhite;
 }
-.easy{
+.easy{ /* Set the styles for the easy button*/
     color:#86B2F4;
     font-weight:bold;
     text-align: center;  
@@ -18,7 +18,7 @@ body{
     top:5px;
 }
 
-.medium{
+.medium{ /* Set the styles for the medium button*/
     color:#86B2F4;
     font-weight:bold;
     text-align: center;  
@@ -29,7 +29,7 @@ body{
     top:5px;
 }
 
-.hard{
+.hard{ /* Set the styles for the hard button*/
     color:#86B2F4;
     font-weight:bold;
     text-align: center;  
@@ -40,7 +40,7 @@ body{
     top:5px;
 }
 
-.submit{
+.submit{ /* Set the styles for the submit button*/
     color:#86B2F4;
     color:#86B2F4;
     font-weight:bold;
@@ -75,13 +75,12 @@ body{
     background-color:#86B2F4;
 }
 
-.websitetitle{
+.websitetitle{ /* Set the styles for the header*/
     color:black;
     font-size:x-large;
 }
 
-.container{
-    /* Set the font size of the calendar to x-large, the width to 300 pixels, and the left and right margins to auto*/
+.container{ /* Set the font size of the calendar to x-large, the width to 300 pixels, and the left and right margins to auto*/
     text-align:center;
     border-style:hidden;
     font-size:x-large;
@@ -90,15 +89,15 @@ body{
     margin-right:auto;
 }
 
-.centered{
+.centered{ /* Set the style to be centered*/
     text-align:center;
 }
 
-.clue{
+.clue{ /* Set the style to be x-large font*/
     font-size:x-large;
 }
 
-.puzzle{
+.puzzle{ /* Set the styles for the puzzle*/
     border-color:black;
     font-size:small;
 }

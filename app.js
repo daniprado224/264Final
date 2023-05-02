@@ -1,3 +1,9 @@
+/* 
+Elyse Adamo
+Daniella Prado 
+Luisa Slomp
+CSE 264- Final Project: CrossWord Puzzle 
+This file is for the backend of the crossword puzzle */
 const express = require("express");
 const path = require("path");
 const fs = require("fs"); 
@@ -5,10 +11,12 @@ const app = express();
 const publicPath = path.resolve(__dirname, "public");
 app.use(express.static(publicPath));
 
-const easywords = fs.readFileSync("easywords.txt", "utf8"); // Read the csv file in 
-const mediumwords = fs.readFileSync("mediumwords.txt", "utf8"); // Read the csv file in 
-const hardwords = fs.readFileSync("hardwords.txt", "utf8"); // Read the csv file in 
+// Read in the text files with the words and clues
+const easywords = fs.readFileSync("easywords.txt", "utf8"); 
+const mediumwords = fs.readFileSync("mediumwords.txt", "utf8"); 
+const hardwords = fs.readFileSync("hardwords.txt", "utf8"); 
 
+// Class to store words with number, word, and clue parameters
 class Words{
   constructor(number, word, clue){
     this.number = number; 
@@ -16,36 +24,35 @@ class Words{
     this.clue = clue; 
   }
 }
+
+// Split the textfiles on new lines
 const easylines = easywords.split("\n"); 
 const mediumlines = mediumwords.split("\n"); 
 const hardlines = hardwords.split("\n"); 
 
+// Create a new word by splitting each line by comma to get the number, word, and clue
+// Repeat for the easy, med, and hard files
 const fixeasy  = easylines.map( 
-  // Passing a function to method map
   (line, index) => {
-    const l = line.trim().split(", "); // Split each line based on the commas
+    const l = line.trim().split(", "); 
     let num = l[0];
     let myword = l[1]; 
     let myclue = l[2]; 
     return new Words(l[0], l[1], l[2]); 
   }
 )
-
 const fixmedium  = mediumlines.map( 
-  // Passing a function to method map
   (line, index) => {
-    const l = line.trim().split(", "); // Split each line based on the commas
+    const l = line.trim().split(", "); 
     let num = l[0];
     let myword = l[1]; 
     let myclue = l[2]; 
     return new Words(l[0],  l[1], l[2]); 
   }
 )
-
 const fixhard  = hardlines.map( 
-  // Passing a function to method map
   (line, index) => {
-    const l = line.trim().split(", "); // Split each line based on the commas
+    const l = line.trim().split(", "); 
     let num = l[0];
     let myword = l[1]; 
     let myclue = l[2]; 
@@ -53,13 +60,14 @@ const fixhard  = hardlines.map(
   }
 )
 
+// Router to make the clues for the easy puzzle (separate into across and down)
 app.get("/easymake", (req, res) => {
   let accross = "<strong>Across:</strong>"; 
   across = accross + "<br></br>"; 
   let down = "<strong>Down:</strong>";
   down = down + "<br></br>";
   for(let i = 0; i < 5; i++){
-    if(i + 1 === 1){
+    if(i + 1 === 1){ 
       accross = across + (i+1).toString();
       accross = accross + ". ";
       across = accross + fixeasy[i].clue;
@@ -79,6 +87,7 @@ app.get("/easymake", (req, res) => {
   res.end(JSON.stringify(obj)); 
 })
 
+// Router to make the clues for the medium puzzle (separate into across and down)
 app.get("/medmake", (req, res) => {
   let str = "";
   let accross = "<strong>Across:</strong>"; 
@@ -105,6 +114,7 @@ app.get("/medmake", (req, res) => {
   res.end(JSON.stringify(obj)); 
 })
 
+// Router to make the clues for the hard puzzle (separate into across and down)
 app.get("/hardmake", (req, res) => {
   let str = "";
   let accross = "<strong>Across:</strong>"; 
@@ -133,7 +143,7 @@ app.get("/hardmake", (req, res) => {
   res.end(JSON.stringify(obj)); 
 })
 
-
+// Router to make the easy puzzle
 app.get("/makeeasypuzzle", (req, res) => { 
   let index = 0;
   let temp = "";
@@ -183,8 +193,7 @@ app.get("/makeeasypuzzle", (req, res) => {
   res.end(JSON.stringify(obj)); 
 })
 
-
-
+// Router to make the medium puzzle
 app.get("/makemedpuzzle", (req, res) => { 
   let index = 0;
   let temp = "";
@@ -243,7 +252,7 @@ app.get("/makemedpuzzle", (req, res) => {
   res.end(JSON.stringify(obj)); 
 })
 
-
+// Router to make the hard puzzle
 app.get("/makehardpuzzle", (req, res) => { 
   let index = 0;
   let temp = "";
@@ -261,9 +270,7 @@ app.get("/makehardpuzzle", (req, res) => {
       if(str[index] == undefined){
         break;
       }
-      console.log(str[index]);
-      temp = temp + "<td>"; // Since we are entering a new column each loop, add a new opening td tag
-      
+      console.log(str[index]);      
       if(str[index] === " "){
         temp = temp + "<td>&nbsp;</td>"; // Add empty space to the cell
       } else {
@@ -274,29 +281,38 @@ app.get("/makehardpuzzle", (req, res) => {
           temp = temp + '<td><input type="text" maxlength="1" style="background-color: white; display: inline-block; width: 40px; height: 40px;">3</div></td>';
           cCount++;
         }else if(str[index] === "c" && cCount === 0){ // clutch
-          temp = temp + '<td><input type="text" maxlength="1" style="background-color: white; display: inline-block; width: 40px; height: 40px;">5</div></td>';
+          temp = temp + '<td><input type="text" maxlength="1" style="background-color: white; display: inline-block; width: 40px; height: 40px;">5</input></td>';
           cCount++;
         }else if(str[index] === "c" && cCount === 1){ // cup
-          temp = temp + '<td><input type="text" maxlength="1" style="background-color: white; display: inline-block; width: 40px; height: 40px;">10</div></td>';
+          temp = temp + '<td><input type="text" maxlength="1" style="background-color: white; display: inline-block; width: 40px; height: 40px;">10</input></td>';
           cCount++;
-        } else if(str[index] === "l" && lCount === 2){ // linderman
-          temp = temp + '<td><input type="text" maxlength="1" style="background-color: white; display: inline-block; width: 40px; height: 40px;">4</div></td>';
+        } else if(str[index] === "l" && lCount === 3){ // linderman
+          temp = temp + '<td><input type="text" maxlength="1" style="background-color: white; display: inline-block; width: 40px; height: 40px;">4</input></td>';
           lCount++;
         } else if(str[index] === "l" && lCount === 1){ // lelaf
-          temp = temp + '<td><input type="text" maxlength="1" style="background-color: white; display: inline-block; width: 40px; height: 40px;">6</div></td>';
+          temp = temp + '<td><input type="text" maxlength="1" style="background-color: white; display: inline-block; width: 40px; height: 40px;">6</input></td>';
           lCount++;
         } else if(str[index] === "r" && rCount === 3){ // rathbone
-          temp = temp + '<td><input type="text" maxlength="1" style="background-color: white; display: inline-block; width: 40px; height: 40px;">7</div></td>';
+          temp = temp + '<td><input type="text" maxlength="1" style="background-color: white; display: inline-block; width: 40px; height: 40px;">7</input></td>';
           rCount++;
         } else if(str[index] === "g" && gCount === 0){ // goodman
-          temp = temp + '<td><input type="text" maxlength="1" style="background-color: white; display: inline-block; width: 40px; height: 40px; 40px;">8</div></td>';
+          temp = temp + '<td><input type="text" maxlength="1" style="background-color: white; display: inline-block; width: 40px; height: 40px; 40px;">8</input></td>';
           gCount++;
         } else if(str[index] === "f" && fCount === 0){ // fraternity
-          temp = temp + '<td><input type="text" maxlength="1" style="background-color: white; display: inline-block; width: 40px; height: 40px;">9</div></td>';
+          temp = temp + '<td><input type="text" maxlength="1" style="background-color: white; display: inline-block; width: 40px; height: 40px;">9</input></td>';
+          fCount++;
+        } else if(str[index] === "h" && hCount === 1){ // helble
+          temp = temp + '<td><input type="text" maxlength="1" style="background-color: white; display: inline-block; width: 40px; height: 40px;">2</input></td>';
           fCount++;
         } else {
-          temp = temp + '<td><input type="text" maxlength="1" style="background-color: white; display: inline-block; width: 40px; height: 40px;"></div></td>'; // Add white box to the cell
-        } 
+          temp = temp + '<td><input type="text" maxlength="1" style="background-color: white; display: inline-block; width: 40px; height: 40px;"></input></td>'; // Add white box to the cell
+        } if(str[index] === "h"){ // Increment the 's' counter if an 's' is found
+          hCount++;
+        } if(str[index] === "l"){ // Increment the 'l' counter if an 'l' is found
+          lCount++;
+        } if(str[index] === "r"){ // Increment the 'r' counter if an 'r' is found
+          rCount++;
+        }
       }
       index = index + 1; // Move to the next value of grid
     }
@@ -308,8 +324,6 @@ app.get("/makehardpuzzle", (req, res) => {
   let obj = {contents: temp};
   res.end(JSON.stringify(obj)); 
 })
-
-
 
 app.use(function(req, res) {
   res.writeHead(200, { "Content-Type": "text/plain" });
