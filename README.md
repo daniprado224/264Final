@@ -1,4 +1,4 @@
-# Web Programming Final Project 
+# Web Programming Sample Project 
 Final project for web programming spring 2023. 
 This project is a crossword puzzle with different levels of difficulty.
 Each level has it's own theme and a different amount of words and clues. 
